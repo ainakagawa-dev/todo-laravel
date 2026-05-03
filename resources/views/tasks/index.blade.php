@@ -12,6 +12,7 @@
         <ul>        
             @foreach ($todo as $task)
                 <li>{{ $task->title }}
+                    <a href="{{ route('tasks.edit', $task) }}">編集</a>
                     <form method="POST" action="{{ route('tasks.destroy', $task) }}">
                         @csrf
                         @method('DELETE')
@@ -24,6 +25,7 @@
         <ul>
             @foreach ($doing as $task)
                 <li>{{ $task->title }}
+                    <a href="{{ route('tasks.edit', $task) }}">編集</a>
                     <form method="POST" action="{{ route('tasks.destroy', $task) }}">
                         @csrf
                         @method('DELETE')
@@ -36,6 +38,7 @@
         <ul>
             @foreach ($done as $task)
               <li>{{ $task->title }}
+                    <a href="{{ route('tasks.edit', $task) }}">編集</a>
                     <form method="POST" action="{{ route('tasks.destroy', $task) }}">
                         @csrf
                         @method('DELETE')

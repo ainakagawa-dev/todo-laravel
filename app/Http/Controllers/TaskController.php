@@ -44,4 +44,20 @@ class TaskController extends Controller
         return redirect('/tasks');
     }
     
+    // タスクの編集フォームを表示する
+    public function edit(Task $task)
+    {
+        return view('tasks.edit', compact('task'));
+    }
+
+    // タスクを更新する
+    public function update(Request $request, Task $task)
+    {
+        $task->update([
+            'title' => $request->title,
+            'status' => $request->status,
+        ]);
+
+        return redirect('/tasks');
+    }
 }

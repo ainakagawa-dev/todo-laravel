@@ -11,19 +11,37 @@
         <h2>未着手</h2>
         <ul>        
             @foreach ($todo as $task)
-                <li>{{ $task->title }}</li>
+                <li>{{ $task->title }}
+                    <form method="POST" action="{{ route('tasks.destroy', $task) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">削除</button>
+                    </form>
+                </li>
             @endforeach
         </ul>
         <h2>着手中</h2>
         <ul>
             @foreach ($doing as $task)
-                <li>{{ $task->title }}</li>
+                <li>{{ $task->title }}
+                    <form method="POST" action="{{ route('tasks.destroy', $task) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">削除</button>
+                    </form>
+                </li>
             @endforeach
         </ul>
         <h2>完了</h2>
         <ul>
             @foreach ($done as $task)
-              <li>{{ $task->title }}</li>  
+              <li>{{ $task->title }}
+                    <form method="POST" action="{{ route('tasks.destroy', $task) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">削除</button>
+                    </form>
+                </li>
             @endforeach
         </ul>   
 

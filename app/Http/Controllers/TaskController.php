@@ -35,5 +35,13 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+
+    // タスクを削除する
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return redirect('/tasks');
+    }
     
 }

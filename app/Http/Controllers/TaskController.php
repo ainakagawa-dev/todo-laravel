@@ -7,7 +7,7 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    //
+    // タスクの一覧を表示する
     public function index()
     {
         $tasks = Task::all();
@@ -19,5 +19,21 @@ class TaskController extends Controller
         return view('tasks.index', compact('todo', 'doing', 'done'));
     }
 
+    // タスクの作成フォームを表示する
+    public function create()
+    {
+        return view('tasks.create');
+    }
+
+    // タスクを保存する
+    public function store(Request $request)
+    {
+        Task::create([
+            'title' => $request->title,
+            'status' => $request->status,
+        ]);
+
+        return redirect('/tasks');
+    }
     
 }
